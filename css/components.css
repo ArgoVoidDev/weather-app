@@ -1,0 +1,645 @@
+/* =============================================
+   SKYCAST — components.css
+   استایل تمام کامپوننت‌ها و صفحه‌ها
+   ============================================= */
+
+/* =============================================
+   کانتینر اصلی
+   ============================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =============================================
+   کامپوننت مشترک: top-bar (هدر صفحه‌های اصلی)
+   ============================================= */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  color: var(--color-text-muted);
+  letter-spacing: 0.3rem;
+  white-space: nowrap;
+  font-size: var(--text-sm);
+}
+
+/* =============================================
+   کامپوننت مشترک: search-input-wrapper
+   هم در empty-screen و هم در top-bar استفاده می‌شود
+   ============================================= */
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  height: 70px;
+  padding-left: 65px;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-card-bg);
+  box-shadow: var(--shadow-input-1);
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+}
+
+.search-input-wrapper input:focus {
+  outline: none;
+  box-shadow: var(--shadow-input-2);
+}
+
+.search-input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* آیکون ذره‌بین داخل input */
+.search-input-wrapper i {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  /* جلوگیری از کلیک روی آیکون */
+  pointer-events: none;
+}
+
+/* دایره انیمیشن pulse کنار search */
+.circle-animation {
+  position: absolute;
+  left: 14px;
+  top: 20%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  animation: pulse 2s infinite;
+  /* جلوگیری از کلیک روی دایره */
+  pointer-events: none;
+}
+
+/* =============================================
+   کامپوننت مشترک: دکمه پایه
+   ============================================= */
+.btn {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: 1rem 1.5rem;
+  font-size: var(--text-base);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.btn i {
+  margin-right: 0.5rem;
+}
+
+/* دکمه location در top-bar */
+.location-btn {
+  height: 70px;
+  padding: 0 2rem;
+  margin-top: 0;
+}
+
+/* =============================================
+   کامپوننت مشترک: toggle °C / °F
+   ============================================= */
+.chenga-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-xl);
+  padding: 0.25rem;
+  /* 
+    توجه: position: relative روی والد (.weather-info) 
+    تنظیم شده — toggle داخل جریان عادی قرار دارد
+  */
+}
+
+.chenga-toggle button {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  color: var(--color-text-muted);
+  padding: 0.3rem 0.7rem;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chenga-toggle button.active {
+  background: var(--color-card-bg);
+  color: var(--color-text-primary);
+}
+
+/* =============================================
+   کامپوننت مشترک: card پایه
+   ============================================= */
+.card {
+  border: 1px solid var(--color-card-border);
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+}
+
+/* =============================================
+   کامپوننت مشترک: card-box (کارت اصلی آب‌وهوا)
+   هم clear-screen و هم rainy-screen از این استفاده می‌کنند
+   ============================================= */
+.card-box {
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  margin: 0 2rem;
+  display: grid;
+  /* ستون چپ: اطلاعات اصلی | ستون راست: conditions + forecast */
+  grid-template-columns: 1fr 1fr;
+  /* ستون چپ در هر دو ردیف کشیده می‌شود */
+  grid-template-rows: auto auto;
+}
+
+/* ستون چپ — اطلاعات اصلی آب‌وهوا */
+.weather-info {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* در grid، ستون چپ هر دو ردیف را می‌گیرد */
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.weather-info h5 {
+  font-size: 70px;
+  font-weight: lighter;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+/* اسم شهر */
+.weather-info h3 {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: var(--text-xl);
+}
+
+.weather-info h3 span {
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.weather-info p {
+  margin-top: 0;
+}
+
+/* آیکون آب‌وهوا */
+.clear-screen .weather-info svg {
+  color: var(--color-accent);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-glow);
+}
+
+.rainy-screen .weather-info svg {
+  color: var(--color-text-primary);
+  width: 100px;
+  height: 100px;
+}
+
+/* =============================================
+   بخش Conditions
+   ============================================= */
+.conditions {
+  /* در grid، ستون راست ردیف اول */
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.conditions h3 {
+  text-align: start;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  letter-spacing: 0.15rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.conditions .cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.conditions .card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+.conditions .card svg {
+  color: var(--color-text-primary);
+  opacity: 0.6;
+  margin-bottom: 0.6rem;
+}
+
+.conditions .card span {
+  font-size: var(--text-xs);
+  letter-spacing: 0.1rem;
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+}
+
+.conditions .card p {
+  color: var(--color-text-primary);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  margin-top: 0;
+  opacity: 1;
+}
+
+/* =============================================
+   بخش Forecast
+   ============================================= */
+.forecast {
+  /* در grid، ستون راست ردیف دوم */
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding-top: 1.5rem;
+}
+
+.forecast h3 {
+  text-align: start;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  letter-spacing: 0.15rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.forecast .cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.forecast .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+.forecast .card h4 {
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.forecast .card svg {
+  margin: 0.4rem 0;
+  color: var(--color-text-primary);
+}
+
+/* دمای بیشینه */
+.forecast .card span {
+  font-size: var(--text-sm);
+  margin-bottom: 0.2rem;
+}
+
+/* دمای کمینه */
+.forecast .card p {
+  font-size: var(--text-sm);
+  margin-top: 0;
+  opacity: 0.6;
+}
+
+/* =============================================
+   EMPTY SCREEN
+   ============================================= */
+.empty-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.name-box {
+  max-width: 70%;
+  margin: 0 auto 3rem;
+}
+
+.name-box .logo-name {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: var(--text-sm);
+  letter-spacing: 0.3rem;
+  color: var(--color-text-muted);
+}
+
+.hero-title {
+  color: var(--color-text-primary);
+  font-size: var(--text-hero);
+  font-weight: 100;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* در empty-screen، search-input-wrapper عرض ثابت دارد */
+.empty-screen .search-input-wrapper {
+  width: 450px;
+  max-width: 100%;
+  flex: none;
+}
+
+.empty-screen .search-input-wrapper input {
+  height: 60px;
+  padding-left: 60px;
+}
+
+.Optional-text {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* دکمه Use my location در empty-screen */
+.empty-screen .btn {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+}
+
+/* =============================================
+   LOADING SCREEN — Skeleton
+   ============================================= */
+.loading-screen {
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* skeleton search bar در بالا */
+.loading-screen .top-bar-skeleton {
+  width: 70%;
+  height: 70px;
+  margin: 2rem auto 3rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* کارت اصلی loading */
+.weather-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px;
+  padding: 2rem;
+
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ستون چپ loading */
+.loading-screen .weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* override کردن grid settings کارت اصلی */
+  grid-column: unset;
+  grid-row: unset;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.loading-screen .temp {
+  width: 180px;
+  height: 90px;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-city-name {
+  width: 200px;
+  height: 25px;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-description {
+  width: 280px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+}
+
+/* ستون راست loading */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.loading-screen .conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.loading-screen .condition-card {
+  height: 100px;
+  border-radius: var(--radius-lg);
+}
+
+.forecast-row {
+  display: flex;
+  gap: 16px;
+}
+
+.forecast-card {
+  width: 75px;
+  height: 110px;
+  border-radius: var(--radius-lg);
+}
+
+/* کلاس پایه skeleton */
+.skeleton {
+  background: rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* افکت shimmer */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* =============================================
+   ERROR SCREEN
+   ============================================= */
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-screen .logo-name {
+  display: block;
+  margin-bottom: 2rem;
+  font-size: var(--text-sm);
+  letter-spacing: 0.3rem;
+  color: var(--color-text-muted);
+}
+
+.error-box {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem;
+}
+
+.error-box svg {
+  color: var(--color-danger);
+}
+
+.error-box h3 {
+  color: var(--color-text-primary);
+  margin: 1rem 0 0.5rem;
+  font-size: var(--text-xl);
+}
+
+.error-box p {
+  margin-top: 0;
+}
+
+/* search bar در error-screen */
+.error-screen .search-input-wrapper {
+  width: 450px;
+  max-width: 100%;
+  flex: none;
+}
+
+.error-screen .search-input-wrapper input {
+  border-color: var(--color-danger);
+}
+
+.error-screen .search-input-wrapper input:focus {
+  border-color: var(--color-card-border);
+}
+
+.suggestions {
+  margin-top: 1.5rem;
+}
+
+.suggestions h3 {
+  margin-bottom: 1rem;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.btn-box {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-box .btn {
+  padding: 0.6rem 1.2rem;
+  font-size: var(--text-sm);
+}
+
+/* =============================================
+   NAVBAR — نوار پایین صفحه (فقط برای demo)
+   ============================================= */
+.navBar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.nav {
+  background-color: rgba(32, 57, 77, 0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  padding: 6px 8px;
+  gap: 0.5rem;
+}
+
+.nav button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav button:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* دکمه فعال */
+.nav button:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(72, 93, 109);
+  color: var(--color-text-primary);
+}
+.nav button.active {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(72, 93, 109);
+  color: var(--color-text-primary);
+}
+
