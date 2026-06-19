@@ -15,8 +15,8 @@
   <body>
     <main class="container">
       <section class="empty-screen hidden">
-      <div class="search-box">
-        <div class="name-box">
+        <div class="search-box">
+          <div class="name-box">
             <p>◈ SKYCAST</p>
             <h1 class="hero-title">Your weather, beautifully simple.</h1>
             <p>Enter a city to get started.</p>
@@ -25,7 +25,11 @@
             <div class="search-input-wrapper">
               <div class="circle-animation"></div>
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" placeholder="Search for a city..." />
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search for a city..."
+              />
             </div>
 
             <p>Try: Tehran, London, Tokyo, Seattle</p>
@@ -112,18 +116,18 @@
               <path d="m6.34 17.66-1.41 1.41" />
               <path d="m19.07 4.93-1.41 1.41" />
             </svg>
-            <h5>24°</h5>
+            <h5 id="temperature">24°</h5>
             <div class="chenga-toggle">
               <button>°C</button>
               <button>°F</button>
             </div>
 
-            <h3>Tehran, <span>IR</span></h3>
+            <h3 id="cityName">Tehran, <span id="country">IR</span></h3>
 
-            <p>Wednesday, June 12 · 09:41 AM</p>
+            <p id="dateTime">Wednesday, June 12 · 09:41 AM</p>
 
-            <h3>Clear Sky</h3>
-            <p>Feels like 26°</p>
+            <h3 id="description">Clear Sky</h3>
+            <p id="feelsLike">Feels like 26°</p>
           </div>
 
           <div class="conditions">
@@ -150,7 +154,7 @@
                   />
                 </svg>
                 <span>Humidity</span>
-                <p>58%</p>
+                <p id="humidity">58%</p>
               </div>
               <div class="card">
                 <svg
@@ -170,7 +174,7 @@
                   <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
                 </svg>
                 <span>Wind</span>
-                <p>14 Km/h NW</p>
+                <p id="wind">14 Km/h NW</p>
               </div>
               <div class="card">
                 <svg
@@ -191,7 +195,7 @@
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 <span>Visibility</span>
-                <p>10 Km</p>
+                <p id="visibility">10 Km</p>
               </div>
               <div class="card">
                 <svg
@@ -217,7 +221,7 @@
                   <path d="M6.343 6.343h.01" />
                 </svg>
                 <span>UV Index</span>
-                <p>6 — High</p>
+                <p id="uvIndex">6 — High</p>
               </div>
             </div>
           </div>
@@ -387,17 +391,17 @@
                 d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
               />
             </svg>
-            <h5>12°</h5>
+            <h5 id="temperature" >12°</h5>
             <div class="chenga-toggle">
               <button>°C</button>
               <button>°F</button>
             </div>
 
-            <h3>Seattle, <span>US</span></h3>
-            <p>Tuesday, June 11 · 11:41 PM</p>
+            <h3 id="cityName">Seattle, <span id="country">US</span></h3>
+            <p id="dateTime">Tuesday, June 11 · 11:41 PM</p>
 
-            <h3>Heavy Rain</h3>
-            <p>Feels like 10°</p>
+            <h3 id="description">Heavy Rain</h3>
+            <p id="feelsLike">Feels like 10°</p>
           </div>
 
           <div class="conditions">
@@ -424,7 +428,7 @@
                   />
                 </svg>
                 <span>Humidity</span>
-                <p>88%</p>
+                <p id="humidity">88%</p>
               </div>
               <div class="card">
                 <svg
@@ -444,7 +448,7 @@
                   <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
                 </svg>
                 <span>Wind</span>
-                <p>18 Km/h W</p>
+                <p id="wind">18 Km/h W</p>
               </div>
               <div class="card">
                 <svg
@@ -465,7 +469,7 @@
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 <span>Visibility</span>
-                <p>5 Km</p>
+                <p id="visibility">5 Km</p>
               </div>
               <div class="card">
                 <svg
@@ -491,7 +495,7 @@
                   <path d="M6.343 6.343h.01" />
                 </svg>
                 <span>UV Index</span>
-                <p>1 — Low</p>
+                <p id="uvIndex">1 — Low</p>
               </div>
             </div>
           </div>
@@ -660,6 +664,7 @@
       </section>
     </main>
 
+    <script src="/js/config.js"></script>
     <script src="/js/api.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/storage.js"></script>
