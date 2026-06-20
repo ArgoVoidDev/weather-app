@@ -43,7 +43,7 @@ const searchInputs = document.querySelectorAll(".search-Input");
 
 searchInputs.forEach((input) => {
   input.addEventListener("keydown", async (event) => {
-    له {
+    {
       const cityName = input.value.trim();
       if (!cityName) return;
       showScreen("loading-screen");
