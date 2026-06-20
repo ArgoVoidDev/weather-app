@@ -25,6 +25,10 @@ navButtons.forEach((button) => {
     // Get the target screen from the clicked button
     const screenName = button.dataset.screen;
 
+    if (screenName === "empty-screen") {
+      document.body.className = "";
+    }
+
     // Switch to the selected screen
     showScreen(screenName);
   });
@@ -35,18 +39,25 @@ showScreen(defaultScreen);
 
 const searchInput = document.getElementById("searchInput");
 
-
 searchInput.addEventListener("keydown", async (event) => {
   if (event.key === "Enter") {
     const cityName = searchInput.value.trim();
-    if(!cityName) return
-    showScreen('loading-screen')
+    if (!cityName) return;
+    showScreen("loading-screen");
     const data = await fetchWeather(cityName);
     console.log(data);
 
-    updateUI(data)
-    showScreen('clear-screen')
-  }
-  
-});
+    updateUI(data);
+    const condition = data.weather[0].main;
 
+    if (
+      condition === "Rain" ||
+      condition === "Drizzle" ||
+      condition === "Thunderstorm"
+    ) {
+      showScreen("rainy-screen");
+    } else {
+      showScreen("clear-screen");
+    }
+  }
+});

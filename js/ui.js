@@ -27,5 +27,18 @@ function updateUI(data) {
   windEl.textContent = `${data.wind.speed} KM/HW`;
   visibilityEl.textContent = `${data.visibility} KM`;
   uvIndexEl.textContent = `N/A`;
+  updateBackground(data.weather[0].main);
+}
+const condition = data.weather[0].main;
+function updateBackground(condition) {
+  document.body.classList = "";
+
+  if (condition === "Clear") {
+    document.body.classList.add("weather-clear");
+  } else if (condition === "Rain"  || condition === "Drizzle" || condition === "Thunderstorm") {
+    document.body.classList.add("weather-rainy");
+  } else {
+    document.body.classList.add("weather-cloudy");
+  }
 }
 
