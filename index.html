@@ -26,7 +26,7 @@
               <div class="circle-animation"></div>
               <i class="fa-solid fa-magnifying-glass"></i>
               <input
-                id="searchInput"
+                class="search-Input"
                 type="text"
                 placeholder="Search for a city..."
               />
@@ -84,7 +84,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <div class="circle-animation"></div>
 
-            <input id="searchInput" type="text" placeholder="Search for a city..." />
+            <input class="search-Input" type="text" placeholder="Search for a city..." />
           </div>
 
           <button class="btn location-btn">
@@ -364,7 +364,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <div class="circle-animation"></div>
 
-            <input id="searchInput" type="text" placeholder="Search for a city..." />
+            <input class="search-Input" type="text" placeholder="Search for a city..." />
           </div>
 
           <button class="btn location-btn">
@@ -391,17 +391,17 @@
                 d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
               />
             </svg>
-            <h5 id="temperature" >12°</h5>
+            <h5 id="temperature-rainy" >12°</h5>
             <div class="chenga-toggle">
               <button>°C</button>
               <button>°F</button>
             </div>
 
-            <h3 id="cityName">Seattle, <span id="country">US</span></h3>
-            <p id="dateTime">Tuesday, June 11 · 11:41 PM</p>
+            <h3 id="cityName-rainy">Seattle, <span id="country-rainy">US</span></h3>
+            <p id="dateTime-rainy">Tuesday, June 11 · 11:41 PM</p>
 
-            <h3 id="description">Heavy Rain</h3>
-            <p id="feelsLike">Feels like 10°</p>
+            <h3 id="description-rainy">Heavy Rain</h3>
+            <p id="feelsLike-rainy">Feels like 10°</p>
           </div>
 
           <div class="conditions">
@@ -428,7 +428,7 @@
                   />
                 </svg>
                 <span>Humidity</span>
-                <p id="humidity">88%</p>
+                <p id="humidity-rainy">88%</p>
               </div>
               <div class="card">
                 <svg
@@ -448,7 +448,7 @@
                   <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
                 </svg>
                 <span>Wind</span>
-                <p id="wind">18 Km/h W</p>
+                <p id="wind-rainy">18 Km/h W</p>
               </div>
               <div class="card">
                 <svg
@@ -469,7 +469,7 @@
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 <span>Visibility</span>
-                <p id="visibility">5 Km</p>
+                <p id="visibility-rainy">5 Km</p>
               </div>
               <div class="card">
                 <svg
@@ -495,7 +495,7 @@
                   <path d="M6.343 6.343h.01" />
                 </svg>
                 <span>UV Index</span>
-                <p id="uvIndex">1 — Low</p>
+                <p id="uvIndex-rainy">1 — Low</p>
               </div>
             </div>
           </div>
@@ -651,7 +651,7 @@
         <div class="search-input-wrapper">
           <div class="circle-animation"></div>
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input id="searchInput" type="text" placeholder="Try another city..." />
+          <input class="search-Input" type="text" placeholder="Try another city..." />
         </div>
         <div class="suggestions">
           <h3>Suggestions</h3>
