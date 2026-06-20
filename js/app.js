@@ -43,6 +43,9 @@ searchInput.addEventListener("keydown", async (event) => {
     showScreen('loading-screen')
     const data = await fetchWeather(cityName);
     console.log(data);
+
+    updateUI(data)
+    showScreen('clear-screen')
   }
   
 });

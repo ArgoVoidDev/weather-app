@@ -78,7 +78,7 @@ body {
 @media (max-width: 480px) {
   /* دما کوچک‌تر */
   .weather-info h5 {
-    font-size: 52px;
+    font-size: var(--text-2xl);
   }
 
   /* padding کمتر */

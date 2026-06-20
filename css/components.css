@@ -190,7 +190,7 @@
 }
 
 .weather-info h5 {
-  font-size: 70px;
+  font-size: var(--text-2xl);
   font-weight: lighter;
   color: var(--color-text-primary);
   line-height: 1;
