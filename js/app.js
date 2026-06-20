@@ -2,6 +2,8 @@ const screens = document.querySelectorAll("main > section"); // All screen secti
 
 const navButtons = document.querySelectorAll("nav button"); // Navigation buttons
 
+const errorName = document.getElementById('errorCity')
+
 const defaultScreen = "empty-screen"; // Screen shown when the page loads
 
 function showScreen(screenName) {
@@ -44,20 +46,24 @@ searchInput.addEventListener("keydown", async (event) => {
     const cityName = searchInput.value.trim();
     if (!cityName) return;
     showScreen("loading-screen");
-    const data = await fetchWeather(cityName);
-    console.log(data);
+    try {
+      const data = await fetchWeather(cityName);
+      updateUI(data);
 
-    updateUI(data);
-    const condition = data.weather[0].main;
-
-    if (
-      condition === "Rain" ||
-      condition === "Drizzle" ||
-      condition === "Thunderstorm"
-    ) {
-      showScreen("rainy-screen");
-    } else {
-      showScreen("clear-screen");
+      const condition = data.weather[0].main;
+      if (
+        condition === "Rain" ||
+        condition === "Drizzle" ||
+        condition === "Thunderstorm"
+      ) {
+        showScreen("rainy-screen");
+      } else {
+        showScreen("clear-screen");
+      }
+    errorName.textContent= ""
+    } catch (error) {
+      errorName.textContent = `"${cityName}" couldn't be found`
+      showScreen("error-screen");
     }
   }
 });
