@@ -70,6 +70,7 @@ searchInputs.forEach((input) => {
         errorName.textContent = `"${cityName}" couldn't be found`;
         showScreen("error-screen");
       }
+      input.value = "";
     }
   });
 });
