@@ -25,8 +25,8 @@ const weatherIcon_RainyEl = document.getElementById("weatherIcon-rainy");
 function updateUI(data) {
   temperatureEl.textContent = `${data.main.temp}°`;
   temperature_RainyEl.textContent = `${data.main.temp}°`;
-  cityNameEl.textContent = `${data.name}`;
-  cityName_RainyEl.textContent = `${data.name}`;
+  cityNameEl.textContent = `${data.name} ,`;
+  cityName_RainyEl.textContent = `${data.name} ,`;
   countryEl.textContent = `${data.sys.country}`;
   country_RainyEl.textContent = `${data.sys.country}`;
   dateTimeEl.textContent = new Date().toLocaleString("en-US", {
@@ -65,6 +65,39 @@ function updateUI(data) {
 
   updateBackground(data.weather[0].main);
 }
+
+function updateForecast(forecasts) {
+  const container = document.getElementById("forecastCards");
+  const container_rainy = document.getElementById("forecastCards-rainy");
+
+  // اول محتوای قبلی را پاک کن
+  container.innerHTML = "";
+  container_rainy.innerHTML = "";
+
+  // روی هر روز بچرخ و کارت بساز
+  forecasts.forEach((item) => {
+    // نام روز را از dt_txt بگیر
+    const day = new Date(item.dt_txt).toLocaleDateString("en-US", {
+      weekday: "short",
+    });
+    const iconUrl = `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
+    const maxTemp = Math.round(item.main.temp_max);
+    const minTemp = Math.round(item.main.temp_min);
+
+    // کارت بساز
+    const cardHTML = `
+    <div class="card">
+      <h4>${day}</h4>
+      <img src="${iconUrl}" alt="${item.weather[0].description}" width="48" height="48"/>
+      <span>${maxTemp}°</span>
+      <p>${minTemp}°</p>
+    </div>
+  `;
+    container.innerHTML += cardHTML;
+    container_rainy.innerHTML += cardHTML;
+  });
+}
+
 function updateBackground(condition) {
   document.body.classList = "";
 

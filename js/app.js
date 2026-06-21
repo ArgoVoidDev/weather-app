@@ -50,6 +50,10 @@ searchInputs.forEach((input) => {
       try {
         const data = await fetchWeather(cityName);
         updateUI(data);
+        const forecastData = await fetchForecast(cityName);
+        updateForecast(forecastData);
+
+        input.value = "";
 
         const condition = data.weather[0].main;
         if (
@@ -66,8 +70,6 @@ searchInputs.forEach((input) => {
         errorName.textContent = `"${cityName}" couldn't be found`;
         showScreen("error-screen");
       }
-    input.value = ''
-
     }
   });
 });

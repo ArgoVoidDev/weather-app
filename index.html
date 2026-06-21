@@ -106,18 +106,22 @@
               height="96"
             />
 
-            <h5 id="temperature">24°</h5>
+            <h5 id="temperature"></h5>
             <div class="chenga-toggle">
               <button>°C</button>
               <button>°F</button>
             </div>
 
-            <h3 id="cityName">Tehran, <span id="country">IR</span></h3>
+            <div>
+              <span id="cityName"></span>
 
-            <p id="dateTime">Wednesday, June 12 · 09:41 AM</p>
+              <span id="country"></span>
+            </div>
 
-            <h3 id="description">Clear Sky</h3>
-            <p id="feelsLike">Feels like 26°</p>
+            <p id="dateTime"></p>
+
+            <h3 id="description"></h3>
+            <p id="feelsLike"></p>
           </div>
 
           <div class="conditions">
@@ -144,7 +148,7 @@
                   />
                 </svg>
                 <span>Humidity</span>
-                <p id="humidity">58%</p>
+                <p id="humidity"></p>
               </div>
               <div class="card">
                 <svg
@@ -164,7 +168,7 @@
                   <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
                 </svg>
                 <span>Wind</span>
-                <p id="wind">14 Km/h NW</p>
+                <p id="wind"></p>
               </div>
               <div class="card">
                 <svg
@@ -185,7 +189,7 @@
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 <span>Visibility</span>
-                <p id="visibility">10 Km</p>
+                <p id="visibility"></p>
               </div>
               <div class="card">
                 <svg
@@ -211,137 +215,14 @@
                   <path d="M6.343 6.343h.01" />
                 </svg>
                 <span>UV Index</span>
-                <p id="uvIndex">6 — High</p>
+                <p id="uvIndex"></p>
               </div>
             </div>
           </div>
 
           <div class="forecast">
             <h3>5-Day Forecast</h3>
-            <div class="cards">
-              <div class="card">
-                <h4>Today</h4>
-                <svg
-                  style="color: orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-sun-icon lucide-sun"
-                >
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2" />
-                  <path d="M12 20v2" />
-                  <path d="m4.93 4.93 1.41 1.41" />
-                  <path d="m17.66 17.66 1.41 1.41" />
-                  <path d="M2 12h2" />
-                  <path d="M20 12h2" />
-                  <path d="m6.34 17.66-1.41 1.41" />
-                  <path d="m19.07 4.93-1.41 1.41" />
-                </svg>
-                <span>24°</span>
-                <p>17°</p>
-              </div>
-              <div class="card">
-                <h4>THU</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>22°</span>
-                <p>15°</p>
-              </div>
-              <div class="card">
-                <h4>FRI</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>20°</span>
-                <p>14°</p>
-              </div>
-              <div class="card">
-                <h4>SAT</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>18°</span>
-                <p>13°</p>
-              </div>
-              <div class="card">
-                <h4>Sun</h4>
-                <svg
-                  style="color: orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-sun-icon lucide-sun"
-                >
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2" />
-                  <path d="M12 20v2" />
-                  <path d="m4.93 4.93 1.41 1.41" />
-                  <path d="m17.66 17.66 1.41 1.41" />
-                  <path d="M2 12h2" />
-                  <path d="M20 12h2" />
-                  <path d="m6.34 17.66-1.41 1.41" />
-                  <path d="m19.07 4.93-1.41 1.41" />
-                </svg>
-                <span>26°</span>
-                <p>16°</p>
-              </div>
-            </div>
+            <div class="cards" id="forecastCards"></div>
           </div>
         </div>
       </section>
@@ -368,20 +249,28 @@
         </header>
         <div class="card-box">
           <div class="weather-info">
-            <img id="weatherIcon-rainy" src="" alt="weather icon" width="96" height="96" />
-            <h5 id="temperature-rainy">12°</h5>
+            <img
+              id="weatherIcon-rainy"
+              src=""
+              alt="weather icon"
+              width="96"
+              height="96"
+            />
+            <h5 id="temperature-rainy"></h5>
             <div class="chenga-toggle">
               <button>°C</button>
               <button>°F</button>
             </div>
 
-            <h3 id="cityName-rainy">
-              Seattle, <span id="country-rainy">US</span>
-            </h3>
-            <p id="dateTime-rainy">Tuesday, June 11 · 11:41 PM</p>
+            <div>
+              <span id="cityName-rainy"></span>
 
-            <h3 id="description-rainy">Heavy Rain</h3>
-            <p id="feelsLike-rainy">Feels like 10°</p>
+              <span id="country-rainy"></span>
+            </div>
+            <p id="dateTime-rainy"></p>
+
+            <h3 id="description-rainy"></h3>
+            <p id="feelsLike-rainy"></p>
           </div>
 
           <div class="conditions">
@@ -408,7 +297,7 @@
                   />
                 </svg>
                 <span>Humidity</span>
-                <p id="humidity-rainy">88%</p>
+                <p id="humidity-rainy"></p>
               </div>
               <div class="card">
                 <svg
@@ -428,7 +317,7 @@
                   <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
                 </svg>
                 <span>Wind</span>
-                <p id="wind-rainy">18 Km/h W</p>
+                <p id="wind-rainy"></p>
               </div>
               <div class="card">
                 <svg
@@ -449,7 +338,7 @@
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 <span>Visibility</span>
-                <p id="visibility-rainy">5 Km</p>
+                <p id="visibility-rainy"></p>
               </div>
               <div class="card">
                 <svg
@@ -475,131 +364,14 @@
                   <path d="M6.343 6.343h.01" />
                 </svg>
                 <span>UV Index</span>
-                <p id="uvIndex-rainy">1 — Low</p>
+                <p id="uvIndex-rainy"></p>
               </div>
             </div>
           </div>
 
           <div class="forecast">
             <h3>5-Day Forecast</h3>
-            <div class="cards">
-              <div class="card">
-                <h4>Today</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>12°</span>
-                <p>8°</p>
-              </div>
-              <div class="card">
-                <h4>WED</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>11°</span>
-                <p>7°</p>
-              </div>
-              <div class="card">
-                <h4>THU</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>14°</span>
-                <p>9°</p>
-              </div>
-              <div class="card">
-                <h4>FRI</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-cloudy-icon lucide-cloudy"
-                >
-                  <path d="M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z" />
-                  <path
-                    d="M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61"
-                  />
-                </svg>
-                <span>18°</span>
-                <p>10°</p>
-              </div>
-              <div class="card">
-                <h4>SAT</h4>
-                <svg
-                  style="color: orange"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-sun-icon lucide-sun"
-                >
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2" />
-                  <path d="M12 20v2" />
-                  <path d="m4.93 4.93 1.41 1.41" />
-                  <path d="m17.66 17.66 1.41 1.41" />
-                  <path d="M2 12h2" />
-                  <path d="M20 12h2" />
-                  <path d="m6.34 17.66-1.41 1.41" />
-                  <path d="m19.07 4.93-1.41 1.41" />
-                </svg>
-                <span>18°</span>
-                <p>11°</p>
-              </div>
-            </div>
+            <div class="cards" id="forecastCards-rainy"></div>
           </div>
         </div>
       </section>
