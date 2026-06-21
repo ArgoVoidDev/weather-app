@@ -19,6 +19,9 @@ const visibility_RainyEl = document.getElementById("visibility-rainy");
 const uvIndexEl = document.getElementById("uvIndex");
 const uvIndex_RainyEl = document.getElementById("uvIndex-rainy");
 
+const weatherIconEl = document.getElementById("weatherIcon");
+const weatherIcon_RainyEl = document.getElementById("weatherIcon-rainy");
+
 function updateUI(data) {
   temperatureEl.textContent = `${data.main.temp}°`;
   temperature_RainyEl.textContent = `${data.main.temp}°`;
@@ -53,6 +56,13 @@ function updateUI(data) {
   visibility_RainyEl.textContent = `${data.visibility} KM`;
   uvIndexEl.textContent = `N/A`;
   uvIndex_RainyEl.textContent = `N/A`;
+
+  const iconCode = data.weather[0].icon;
+  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+  weatherIconEl.src = iconUrl;
+  weatherIcon_RainyEl.src = iconUrl;
+
   updateBackground(data.weather[0].main);
 }
 function updateBackground(condition) {

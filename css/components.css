@@ -213,13 +213,12 @@
 }
 
 /* آیکون آب‌وهوا */
-.clear-screen .weather-info svg {
+.clear-screen  img {
   color: var(--color-accent);
   border-radius: var(--radius-full);
-  box-shadow: var(--shadow-glow);
 }
 
-.rainy-screen .weather-info svg {
+.rainy-screen .weather-info img {
   color: var(--color-text-primary);
   width: 100px;
   height: 100px;
