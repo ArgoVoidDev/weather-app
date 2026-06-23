@@ -1,19 +1,8 @@
-/* =============================================
-   SKYCAST — components.css
-   استایل تمام کامپوننت‌ها و صفحه‌ها
-   ============================================= */
-
-/* =============================================
-   کانتینر اصلی
-   ============================================= */
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* =============================================
-   کامپوننت مشترک: top-bar (هدر صفحه‌های اصلی)
-   ============================================= */
 .top-bar {
   display: flex;
   align-items: center;
@@ -31,10 +20,6 @@
   font-size: var(--text-sm);
 }
 
-/* =============================================
-   کامپوننت مشترک: search-input-wrapper
-   هم در empty-screen و هم در top-bar استفاده می‌شود
-   ============================================= */
 .search-input-wrapper {
   position: relative;
   flex: 1;
@@ -63,7 +48,6 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* آیکون ذره‌بین داخل input */
 .search-input-wrapper i {
   position: absolute;
   left: 25px;
@@ -71,11 +55,10 @@
   transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.5);
   font-size: 20px;
-  /* جلوگیری از کلیک روی آیکون */
+
   pointer-events: none;
 }
 
-/* دایره انیمیشن pulse کنار search */
 .circle-animation {
   position: absolute;
   left: 14px;
@@ -86,13 +69,10 @@
   border: 1.5px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius-full);
   animation: pulse 2s infinite;
-  /* جلوگیری از کلیک روی دایره */
+
   pointer-events: none;
 }
 
-/* =============================================
-   کامپوننت مشترک: دکمه پایه
-   ============================================= */
 .btn {
   background: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
@@ -113,26 +93,18 @@
   margin-right: 0.5rem;
 }
 
-/* دکمه location در top-bar */
 .location-btn {
   height: 70px;
   padding: 0 2rem;
   margin-top: 0;
 }
 
-/* =============================================
-   کامپوننت مشترک: toggle °C / °F
-   ============================================= */
 .chenga-toggle {
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--color-card-border);
   border-radius: var(--radius-xl);
   padding: 0.25rem;
-  /* 
-    توجه: position: relative روی والد (.weather-info) 
-    تنظیم شده — toggle داخل جریان عادی قرار دارد
-  */
 }
 
 .chenga-toggle button {
@@ -151,19 +123,12 @@
   color: var(--color-text-primary);
 }
 
-/* =============================================
-   کامپوننت مشترک: card پایه
-   ============================================= */
 .card {
   border: 1px solid var(--color-card-border);
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
 }
 
-/* =============================================
-   کامپوننت مشترک: card-box (کارت اصلی آب‌وهوا)
-   هم clear-screen و هم rainy-screen از این استفاده می‌کنند
-   ============================================= */
 .card-box {
   border: 1px solid var(--color-card-border);
   border-radius: var(--radius-lg);
@@ -172,19 +137,18 @@
   padding: 2rem;
   margin: 0 2rem;
   display: grid;
-  /* ستون چپ: اطلاعات اصلی | ستون راست: conditions + forecast */
+
   grid-template-columns: 1fr 1fr;
-  /* ستون چپ در هر دو ردیف کشیده می‌شود */
+
   grid-template-rows: auto auto;
 }
 
-/* ستون چپ — اطلاعات اصلی آب‌وهوا */
 .weather-info {
   text-align: start;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* در grid، ستون چپ هر دو ردیف را می‌گیرد */
+
   grid-column: 1 / 2;
   grid-row: 1 / 3;
 }
@@ -196,7 +160,6 @@
   line-height: 1;
 }
 
-/* اسم شهر */
 .weather-info h3 {
   color: var(--color-text-primary);
   font-weight: 600;
@@ -212,23 +175,12 @@
   margin-top: 0;
 }
 
-/* آیکون آب‌وهوا */
-.clear-screen  img {
+.weather-screen img {
   color: var(--color-accent);
   border-radius: var(--radius-full);
 }
 
-.rainy-screen .weather-info img {
-  color: var(--color-text-primary);
-  width: 100px;
-  height: 100px;
-}
-
-/* =============================================
-   بخش Conditions
-   ============================================= */
 .conditions {
-  /* در grid، ستون راست ردیف اول */
   grid-column: 2 / 3;
   grid-row: 1 / 2;
 }
@@ -276,11 +228,7 @@
   opacity: 1;
 }
 
-/* =============================================
-   بخش Forecast
-   ============================================= */
 .forecast {
-  /* در grid، ستون راست ردیف دوم */
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   padding-top: 1.5rem;
@@ -321,22 +269,17 @@
   color: var(--color-text-primary);
 }
 
-/* دمای بیشینه */
 .forecast .card span {
   font-size: var(--text-sm);
   margin-bottom: 0.2rem;
 }
 
-/* دمای کمینه */
 .forecast .card p {
   font-size: var(--text-sm);
   margin-top: 0;
   opacity: 0.6;
 }
 
-/* =============================================
-   EMPTY SCREEN
-   ============================================= */
 .empty-screen {
   display: flex;
   flex-direction: column;
@@ -368,7 +311,6 @@
   margin-bottom: 1rem;
 }
 
-/* در empty-screen، search-input-wrapper عرض ثابت دارد */
 .empty-screen .search-input-wrapper {
   width: 450px;
   max-width: 100%;
@@ -387,21 +329,16 @@
   font-size: var(--text-sm);
 }
 
-/* دکمه Use my location در empty-screen */
 .empty-screen .btn {
   margin-top: 2rem;
   padding: 1rem 2rem;
 }
 
-/* =============================================
-   LOADING SCREEN — Skeleton
-   ============================================= */
 .loading-screen {
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* skeleton search bar در بالا */
 .loading-screen .top-bar-skeleton {
   width: 70%;
   height: 70px;
@@ -410,7 +347,6 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* کارت اصلی loading */
 .weather-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -455,7 +391,6 @@
   border-radius: var(--radius-sm);
 }
 
-/* ستون راست loading */
 .right-col {
   display: flex;
   flex-direction: column;
@@ -484,14 +419,12 @@
   border-radius: var(--radius-lg);
 }
 
-/* کلاس پایه skeleton */
 .skeleton {
   background: rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
 
-/* افکت shimmer */
 .skeleton::after {
   content: "";
   position: absolute;
@@ -508,9 +441,6 @@
   animation: shimmer 1.5s linear infinite;
 }
 
-/* =============================================
-   ERROR SCREEN
-   ============================================= */
 .error-screen {
   display: flex;
   flex-direction: column;
@@ -554,7 +484,6 @@
   margin-top: 0;
 }
 
-/* search bar در error-screen */
 .error-screen .search-input-wrapper {
   width: 450px;
   max-width: 100%;
@@ -586,59 +515,3 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-
-.btn-box .btn {
-  padding: 0.6rem 1.2rem;
-  font-size: var(--text-sm);
-}
-
-/* =============================================
-   NAVBAR — نوار پایین صفحه (فقط برای demo)
-   ============================================= */
-.navBar {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-}
-
-.nav {
-  background-color: rgba(32, 57, 77, 0.95);
-  backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  border-radius: var(--radius-full);
-  padding: 6px 8px;
-  gap: 0.5rem;
-}
-
-.nav button {
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--color-text-muted);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.nav button:hover {
-  color: var(--color-text-primary);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* دکمه فعال */
-.nav button:focus {
-  border-color: rgba(255, 255, 255, 0.5);
-  background-color: rgb(72, 93, 109);
-  color: var(--color-text-primary);
-}
-.nav button.active {
-  border-color: rgba(255, 255, 255, 0.5);
-  background-color: rgb(72, 93, 109);
-  color: var(--color-text-primary);
-}
-

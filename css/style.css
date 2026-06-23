@@ -1,5 +1,5 @@
 :root {
-  /* -- رنگ‌های پایه -- */
+  /* -- basic Color -- */
 
   --color-sky-clear-start: #1a6bbd;
   --color-sky-clear-end: #7ec6f3;
@@ -8,27 +8,27 @@
   --color-sky-rain-start: #0f1923;
   --color-sky-rain-end: #2c3e50;
 
-  /* -- رنگ‌های UI -- */
+  /* -- UI -- */
 
   --color-card-bg: rgba(255, 255, 255, 0.18);
   --color-card-border: rgba(255, 255, 255, 0.35);
   --color-text-primary: #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.72);
-  --color-accent: #f0c040; /*  ← خورشید / آیکون‌های مهم */
-  --color-danger: #e05555; /* ← پیام‌های خطا */
+  --color-accent: #f0c040;
+  --color-danger: #e05555;
 
   --Font-Family: "Inter", sans-serif;
 
   /* -- Scale -- */
-  --text-xs: 0.75rem; /* (12px) ← برچسب‌های کوچک */
-  --text-sm: 0.875rem; /* (14px) ← توضیحات */
-  --text-base: 1rem; /* (16px) ← متن معمولی */
-  --text-lg: 1.125rem; /* (18px) ← عناوین کارت */
-  --text-xl: 1.5rem; /* (24px) ← عنوان شهر */
-  --text-2xl: 3rem; /* (48px) ← عدد دما (عنصر اصلی) */
-  --text-hero: 3.5rem; /*  ← دما بزرگ روی دسکتاپ */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 3rem;
+  --text-hero: 3.5rem;
 
-  /* --سیستم فاصله Spacing Scale-- */
+  /* --Spacing Scale-- */
   --space-0: 0.1rem;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -38,8 +38,6 @@
   --space-8: 2rem;
   --space-12: 3rem;
   --space-16: 4rem;
-
-  /* --گوشه‌گردی و سایه Border Radius & Shadows */
 
   /* -- Border Radius -- */
 
@@ -54,7 +52,7 @@
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.25);
   --shadow-input-1: 0 4px 16px rgba(0, 0, 0, 0.15);
   --shadow-input-2: 0 4px 16px rgba(255, 255, 255, 0.4);
-  --shadow-glow: 0 0 20px rgba(240, 192, 64, 0.4); /* ← برای آیکون خورشید */
+  --shadow-glow: 0 0 20px rgba(240, 192, 64, 0.4);
 }
 .hidden {
   display: none;
@@ -80,7 +78,6 @@ body {
     )
     no-repeat fixed;
 
-  /* انیمیشن تغییر پس‌زمینه هنگام تغییر آب‌وهوا */
   transition: background 0.8s ease;
 }
 
@@ -109,6 +106,28 @@ body.weather-rainy {
       var(--color-sky-rain-end) 70%
     )
     no-repeat fixed;
+}
+body.weather-night {
+  background: linear-gradient(
+      to bottom right,
+      var(--color-sky-rain-end),
+      #1a2a3d
+    )
+    no-repeat fixed;
+}
+body.weather-clear .card-box {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.weather-rainy .card-box {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.weather-night .card-box {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 p {
@@ -146,14 +165,12 @@ h3 {
   font-size: var(--text-2xl);
   color: var(--color-text-primary);
 }
+.temperature-row {
+  display: flex;
+  align-items: center;
+}
 .chenga-toggle {
-  position: absolute;
-  top: 200px;
-  left: 150px;
-  transform: translateY(-50%);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-xl);
-  padding: 0.3rem 0.3rem;
+  margin-left: 1rem;
 }
 .chenga-toggle button {
   background-color: transparent;

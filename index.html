@@ -14,7 +14,7 @@
   </head>
   <body>
     <main class="container">
-      <section class="empty-screen hidden">
+      <section id="#home" class="empty-screen hidden">
         <div class="search-box">
           <div class="name-box">
             <p>◈ SKYCAST</p>
@@ -67,16 +67,7 @@
         </div>
       </section>
 
-      <div class="navBar">
-        <nav class="nav">
-          <button data-screen="empty-screen">Empty</button>
-          <button data-screen="loading-screen">Loading</button>
-          <button data-screen="clear-screen">Clear Day</button>
-          <button data-screen="rainy-screen">Rainy Night</button>
-          <button data-screen="error-screen">Error</button>
-        </nav>
-      </div>
-      <section class="clear-screen hidden">
+      <section class="weather-screen hidden">
         <header class="top-bar">
           <div class="logo">✧ SKYCAST</div>
 
@@ -106,10 +97,12 @@
               height="96"
             />
 
-            <h5 id="temperature"></h5>
-            <div class="chenga-toggle">
-              <button>°C</button>
-              <button>°F</button>
+            <div class="temperature-row">
+              <h5 id="temperature"></h5>
+              <div class="chenga-toggle">
+                <button>°C</button>
+                <button>°F</button>
+              </div>
             </div>
 
             <div>
@@ -227,155 +220,6 @@
         </div>
       </section>
 
-      <section class="rainy-screen hidden">
-        <header class="top-bar">
-          <div class="logo">✧ SKYCAST</div>
-
-          <div class="search-input-wrapper">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <div class="circle-animation"></div>
-
-            <input
-              class="search-Input"
-              type="text"
-              placeholder="Search for a city..."
-            />
-          </div>
-
-          <button class="btn location-btn">
-            <i class="fa-solid fa-location-dot"></i>
-            My location
-          </button>
-        </header>
-        <div class="card-box">
-          <div class="weather-info">
-            <img
-              id="weatherIcon-rainy"
-              src=""
-              alt="weather icon"
-              width="96"
-              height="96"
-            />
-            <h5 id="temperature-rainy"></h5>
-            <div class="chenga-toggle">
-              <button>°C</button>
-              <button>°F</button>
-            </div>
-
-            <div>
-              <span id="cityName-rainy"></span>
-
-              <span id="country-rainy"></span>
-            </div>
-            <p id="dateTime-rainy"></p>
-
-            <h3 id="description-rainy"></h3>
-            <p id="feelsLike-rainy"></p>
-          </div>
-
-          <div class="conditions">
-            <h3>Conditions</h3>
-            <div class="cards">
-              <div class="card">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-droplets-icon lucide-droplets"
-                >
-                  <path
-                    d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"
-                  />
-                  <path
-                    d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"
-                  />
-                </svg>
-                <span>Humidity</span>
-                <p id="humidity-rainy"></p>
-              </div>
-              <div class="card">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-wind-icon lucide-wind"
-                >
-                  <path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
-                  <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
-                  <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
-                </svg>
-                <span>Wind</span>
-                <p id="wind-rainy"></p>
-              </div>
-              <div class="card">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-eye-icon lucide-eye"
-                >
-                  <path
-                    d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
-                  />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-                <span>Visibility</span>
-                <p id="visibility-rainy"></p>
-              </div>
-              <div class="card">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-sun-dim-icon lucide-sun-dim"
-                >
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 4h.01" />
-                  <path d="M20 12h.01" />
-                  <path d="M12 20h.01" />
-                  <path d="M4 12h.01" />
-                  <path d="M17.657 6.343h.01" />
-                  <path d="M17.657 17.657h.01" />
-                  <path d="M6.343 17.657h.01" />
-                  <path d="M6.343 6.343h.01" />
-                </svg>
-                <span>UV Index</span>
-                <p id="uvIndex-rainy"></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="forecast">
-            <h3>5-Day Forecast</h3>
-            <div class="cards" id="forecastCards-rainy"></div>
-          </div>
-        </div>
-      </section>
-
       <section class="error-screen hidden">
         <p class="logo-name">◈ SKYCAST</p>
         <div class="error-box">
@@ -397,8 +241,8 @@
             <path d="M11 7v4" />
             <path d="M11 15h.01" />
           </svg>
-          <h3>City not found</h3>
-          <p id="errorCity">"Atlantis" couldn't be found</p>
+          <h3>Error</h3>
+          <p id="errorCity"></p>
         </div>
         <div class="search-input-wrapper">
           <div class="circle-animation"></div>

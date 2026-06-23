@@ -1,15 +1,8 @@
-/* ============================================
-   یک قانون کلی برای جلوگیری از overflow
-   ============================================ */
 body {
   overflow-x: hidden;
 }
 
-/* ============================================
-   تبلت — 768 پیکسل و کمتر
-   ============================================ */
 @media (max-width: 768px) {
-  /* --- top-bar --- */
   .top-bar {
     flex-direction: column;
     margin: 1rem;
@@ -25,10 +18,7 @@ body {
     width: 100%;
   }
 
-  /* --- کارت اصلی --- */
-  /* !important برای غلبه بر specificity بالاتر components.css */
-  .clear-screen .card-box,
-  .rainy-screen .card-box,
+  .weather-screen .card-box,
   .loading-screen .weather-card {
     display: flex !important;
     flex-direction: column !important;
@@ -37,26 +27,24 @@ body {
     padding: 1.5rem 1rem !important;
   }
 
-  /* weather-info یک ستون کامل */
   .weather-info {
     grid-column: unset;
     grid-row: unset;
   }
 
-  /* --- conditions --- */
   .conditions .cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
-  /* --- forecast --- */
-  .forecast .cards , .forecast-row{
+  .forecast .cards,
+  .forecast-row {
     display: flex !important;
     flex-direction: row !important;
     overflow-x: auto !important;
     gap: 10px !important;
     padding-bottom: 0.5rem;
-    /* مخفی کردن scrollbar */
+
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -65,31 +53,24 @@ body {
     display: none;
   }
 
-  /* اندازه ثابت برای کارت‌های forecast */
   .forecast .card {
     min-width: 80px;
     flex-shrink: 0;
   }
 }
 
-/* ============================================
-   موبایل — 480 پیکسل و کمتر
-   ============================================ */
 @media (max-width: 480px) {
   /* دما کوچک‌تر */
   .weather-info h5 {
     font-size: var(--text-2xl);
   }
 
-  /* padding کمتر */
-  .clear-screen .card-box,
-  .rainy-screen .card-box,
+  .weather-screen .card-box,
   .loading-screen .weather-card {
     padding: 1rem 0.75rem !important;
     margin: 0 0.5rem !important;
   }
 
-  /* conditions فشرده‌تر */
   .conditions .card {
     padding: 0.75rem;
   }
@@ -98,7 +79,6 @@ body {
     font-size: 15px;
   }
 
-  /* forecast کوچک‌تر */
   .forecast .card {
     min-width: 70px;
     padding: 0.5rem;
