@@ -38,3 +38,40 @@ async function fetchForecast(city) {
     throw error;
   }
 }
+
+
+async function fetchWeatherByCoords(lat, lon) {
+  try {
+    const response = await fetch(
+
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`,
+    );
+
+    if (!response.ok) throw new Error("Location not found");
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function fetchForecastByCoords(lat, lon) {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`,
+    );
+
+    if (!response.ok) throw new Error("Forecast not found");
+
+    const data = await response.json();
+
+    const dailyForecasts = data.list.filter((item) =>
+      item.dt_txt.includes("12:00:00"),
+    );
+
+    return dailyForecasts;
+  } catch (error) {
+    throw error;
+  }
+}

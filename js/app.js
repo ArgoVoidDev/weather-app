@@ -122,3 +122,38 @@ function updateTemperature() {
     el.textContent = `${display}°`;
   });
 }
+
+const locationButtons = document.querySelectorAll(".location-btn-trigger");
+
+locationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        showScreen("loading-screen");
+
+        try {
+          const data = await fetchWeatherByCoords(lat, lon);
+          currentWeatherData = data;
+          updateUI(data);
+
+          const forecastData = await fetchForecastByCoords(lat, lon);
+          currentForecastData = forecastData;
+          updateForecast(forecastData);
+
+          showScreen("weather-screen");
+          errorName.textContent = "";
+        } catch (error) {
+          showScreen("error-screen");
+          errorName.textContent = "Couldn't get your location weather";
+        }
+      },
+
+      () => {
+        alert("Please allow location access to use this feature");
+      },
+    );
+  });
+});
