@@ -56,8 +56,8 @@ function updateForecast(forecasts) {
     <div class="card">
       <h4>${day}</h4>
       <img src="${iconUrl}" alt="${item.weather[0].description}" width="48" height="48"/>
-      <span>${maxTemp}°</span>
-      <p>${minTemp}°</p>
+      <span data-temp="${item.main.temp_max}">${Math.round(item.main.temp_max)}°</span>
+      <p data-temp="${item.main.temp_min}">${Math.round(item.main.temp_min)}°</p>
     </div>
   `;
     container.innerHTML += cardHTML;
