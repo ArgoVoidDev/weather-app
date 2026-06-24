@@ -185,7 +185,11 @@ h3 {
   border-radius: var(--radius-lg);
   color: var(--color-text-primary);
 }
-
+#logo-empty,
+#logo-weather,
+#logo-error {
+  cursor: pointer;
+}
 /*  */
 
 @keyframes pulse {
@@ -203,4 +207,13 @@ h3 {
   to {
     left: 100%;
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
 }

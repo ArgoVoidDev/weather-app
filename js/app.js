@@ -1,15 +1,24 @@
-const screens = document.querySelectorAll("main > section"); // All screen sections
+const screens = document.querySelectorAll("main > section");
 
 const errorName = document.getElementById("errorCity");
 
-const defaultScreen = "empty-screen"; // Screen shown when the page loads
+const defaultScreen = "empty-screen"; 
+
+const logos = document.querySelectorAll(".skycast-logo");
 
 function showScreen(screenName) {
-  // Hide all screens
+
   screens.forEach((screen) => screen.classList.add("hidden"));
 
-  // Show the selected screen
-  document.querySelector("." + screenName).classList.remove("hidden");
+  const activeScreen = document.querySelector("." + screenName);
+
+  activeScreen.classList.remove('hidden');
+
+  activeScreen.classList.remove("fade-in");
+
+  void activeScreen.offsetWidth;
+
+  activeScreen.classList.add("fade-in");
 }
 
 // Display the default screen when the page loads
@@ -19,9 +28,7 @@ const searchInputs = document.querySelectorAll(".search-Input");
 
 searchInputs.forEach((input) => {
   input.addEventListener("keydown", async (event) => {
-    
     if (event.key === "Enter") {
-
       const cityName = input.value.trim();
 
       if (!cityName) return;
@@ -44,7 +51,6 @@ searchInputs.forEach((input) => {
         showScreen("weather-screen");
 
         errorName.textContent = "";
-
       } catch (error) {
         errorName.textContent = `"${cityName}" couldn't be found`;
 
@@ -53,5 +59,12 @@ searchInputs.forEach((input) => {
 
       input.value = "";
     }
+  });
+});
+
+logos.forEach((logo) => {
+  logo.addEventListener("click", () => {
+    showScreen("empty-screen");
+    document.body.className = "";
   });
 });

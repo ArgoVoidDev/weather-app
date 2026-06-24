@@ -14,10 +14,10 @@
   </head>
   <body>
     <main class="container">
-      <section id="#home" class="empty-screen hidden">
+      <section class="empty-screen hidden">
         <div class="search-box">
           <div class="name-box">
-            <p>◈ SKYCAST</p>
+            <p id="logo-empty" class="skycast-logo">◈ SKYCAST</p>
             <h1 class="hero-title">Your weather, beautifully simple.</h1>
             <p>Enter a city to get started.</p>
           </div>
@@ -69,7 +69,7 @@
 
       <section class="weather-screen hidden">
         <header class="top-bar">
-          <div class="logo">✧ SKYCAST</div>
+          <div id="logo-weather" class="skycast-logo logo">✧ SKYCAST</div>
 
           <div class="search-input-wrapper">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -221,7 +221,7 @@
       </section>
 
       <section class="error-screen hidden">
-        <p class="logo-name">◈ SKYCAST</p>
+        <p id="logo-error" class="skycast-logo logo-name">◈ SKYCAST</p>
         <div class="error-box">
           <svg
             style="color: red"
