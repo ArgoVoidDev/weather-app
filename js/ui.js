@@ -16,13 +16,7 @@ function updateUI(data) {
   temperatureEl.textContent = `${data.main.temp}°`;
   cityNameEl.textContent = `${data.name} ,`;
   countryEl.textContent = `${data.sys.country}`;
-  dateTimeEl.textContent = new Date().toLocaleString("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  dateTimeEl.textContent = getLocalTime(data.timezone);
 
   descriptionEl.textContent = `${data.weather[0].description}`;
   feelsLikeEl.textContent = `Feels Like ${data.main.feels_like}°`;

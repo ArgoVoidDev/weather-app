@@ -157,3 +157,19 @@ locationButtons.forEach((button) => {
     );
   });
 });
+
+function getLocalTime(timezoneOffset) {
+  const now = new Date();
+
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+
+  const localTime = new Date(utc + timezoneOffset * 1000);
+
+  return localTime.toLocaleString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
