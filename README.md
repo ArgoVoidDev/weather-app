@@ -41,7 +41,7 @@ git clone https://github.com/ArgoVoidDev/weather-app.git
 
 2. get a free API key from openweathermap.org (takes like 2 minutes)
 
-3. create a file called `config.js` inside the js folder and add this:
+3. Open `js/config.js` and replace the API key with your own:
 
 ```javascript
 const CONFIG = {
@@ -63,7 +63,7 @@ skycast/
 │   ├── components.css   (all the UI components)
 │   └── responsive.css   (mobile and tablet styles)
 ├── js/
-│   ├── config.js        (API key - not pushed to github)
+│   ├── config.js        (API key)
 │   ├── api.js           (everything related to fetching data)
 │   ├── ui.js            (updating the DOM with weather data)
 │   ├── storage.js       (localStorage stuff)
