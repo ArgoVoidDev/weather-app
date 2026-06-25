@@ -22,7 +22,6 @@ function showScreen(screenName) {
   activeScreen.classList.add("fade-in");
 }
 
-// Display the default screen when the page loads
 showScreen(defaultScreen);
 
 async function searchCity(cityName) {
