@@ -29,8 +29,6 @@ async function searchCity(cityName) {
 
   showScreen("loading-screen");
 
-  saveLastCity(cityName);
-
   try {
     const data = await fetchWeather(cityName);
     currentWeatherData = data;
@@ -41,7 +39,9 @@ async function searchCity(cityName) {
     const forecastData = await fetchForecast(cityName);
     updateForecast(forecastData);
 
-    saveLastCity(cityName);
+    // {{ Save current city after successful search }}
+
+    // saveLastCity(cityName);
 
     showScreen("weather-screen");
     errorName.textContent = "";
@@ -177,8 +177,10 @@ function getLocalTime(timezoneOffset) {
   });
 }
 
-const lastCity = getLastCity();
+// {{ Auto-load the last searched city when the app starts }}
 
-if (lastCity) {
-  searchCity(lastCity);
-}
+// const lastCity = getLastCity();
+
+// if (lastCity) {
+//   searchCity(lastCity);
+// }
