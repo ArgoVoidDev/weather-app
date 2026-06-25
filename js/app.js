@@ -29,6 +29,8 @@ async function searchCity(cityName) {
 
   showScreen("loading-screen");
 
+  saveLastCity(cityName);
+
   try {
     const data = await fetchWeather(cityName);
     currentWeatherData = data;
@@ -38,6 +40,8 @@ async function searchCity(cityName) {
 
     const forecastData = await fetchForecast(cityName);
     updateForecast(forecastData);
+
+    saveLastCity(cityName);
 
     showScreen("weather-screen");
     errorName.textContent = "";
@@ -171,4 +175,10 @@ function getLocalTime(timezoneOffset) {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+const lastCity = getLastCity();
+
+if (lastCity) {
+  searchCity(lastCity);
 }
