@@ -94,6 +94,10 @@ the app has 4 different screens that switch based on what's happening:
 
 ![Mobile View](./screenshots/mobile-view.png)
 
+## Live Demo
+
+https://argovoiddev.github.io/weather-app/
+
 ---
 
 built this as part of my frontend learning journey. took me way longer than i thought it would but learned a lot.
