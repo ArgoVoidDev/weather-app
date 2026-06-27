@@ -41,10 +41,10 @@
 
   /* -- Border Radius -- */
 
-  --radius-sm: 8px; /* ← badge‌ها، تگ‌ها */
-  --radius-md: 16px; /* ← کارت‌های کوچک */
-  --radius-lg: 24px; /* ← کارت اصلی */
-  --radius-xl: 32px; /* ← کانتینر اصلی */
+  --radius-sm: 8px; 
+  --radius-md: 16px; 
+  --radius-lg: 24px; 
+  --radius-xl: 32px;
   --radius-full: 9999px;
 
   /* -- Shadows -- */
@@ -70,6 +70,7 @@ body {
   padding: 0;
 }
 body {
+  min-height: 100vh;
   font-family: var(--Font-Family);
   background: linear-gradient(
       to bottom right,
